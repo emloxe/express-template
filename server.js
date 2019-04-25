@@ -2,7 +2,12 @@ const express = require("express");
 const compression = require("compression");
 const timeout = require("connect-timeout");
 const proxy = require("http-proxy-middleware");
+const portfinder = require('portfinder');
+const chalk = require('chalk');
+
 const app = express();
+
+let basePort = 8080;
 
 // 设置超时 返回超时响应
 const TIME_OUT = 30 * 1e3;
@@ -30,6 +35,13 @@ const proxyPath = "http://192.168.0.48:9005"; // 目标后端服务地址(公司
 const proxyOption = { target: proxyPath, changeOrigoin: true };
 app.use(proxy("/api/test", proxyOption)); // 这里要注意"/api/test" 是匹配的路由,它会将匹配的路由进行转发，没匹配到的就不会转发。('/discern'完全可以写成'/'就是说所有路由都可以访问)
 
-app.listen("8080", function(req, res) {
-  console.log("connect to http://127.0.0.1:8080");
+portfinder.basePort = basePort;
+portfinder.getPort((err, port) => {
+  if (err) {
+    console(err);
+  } else {
+    app.listen(port, function(req, res) {
+      console.log(chalk.green('INFO'), ` connect to http://127.0.0.1:${port}`);
+    });
+  }
 });
