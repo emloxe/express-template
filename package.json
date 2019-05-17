@@ -1,20 +1,15 @@
 {
-  "name": "express-template",
+  "name": "test",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node serve.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "emloxe",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "chalk": "^2.4.2",
-    "compression": "^1.7.4",
-    "connect-timeout": "^1.9.0",
-    "express": "^4.16.4",
-    "http-proxy-middleware": "^0.19.1",
-    "portfinder": "^1.0.20"
+    "express": "^4.16.3"
   }
 }
