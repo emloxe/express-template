@@ -42,7 +42,7 @@ portfinder.getPort((err, port) => {
   } else {
     app.listen(port, function(req, res) {
       console.log(`[${new Date().toLocaleString()}]`);
-      console.log(chalk.green('INFO'), ` connect to http://127.0.0.1:${port}`);
+      console.log(chalk.green('INFO'), ' connect to', chalk.underline(`http://127.0.0.1:${port}`));
     });
   }
 });
