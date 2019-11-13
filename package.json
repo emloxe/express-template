@@ -16,5 +16,8 @@
     "express": "^4.16.4",
     "http-proxy-middleware": "^0.19.1",
     "portfinder": "^1.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }

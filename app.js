@@ -3,6 +3,7 @@ const compression = require("compression");
 const timeout = require("connect-timeout");
 const proxy = require("http-proxy-middleware");
 const portfinder = require('portfinder');
+const cors = require('cors');
 const chalk = require('chalk');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use(compression()); // 压缩
+app.use(cors()); // 跨域
 app.use(function(req, res, next) {
   // 允许跨域
   res.header("Access-Control-Allow-Origin", "*");
